@@ -1,38 +1,40 @@
-/* ==================================================
+/* =========================================================
    TERESITA PINEDA
-   PORTAFOLIO - STYLE.CSS
-   ================================================== */
+   PORTAFOLIO PROFESIONAL
+   UI/UX · SOFTWARE DEVELOPMENT
+   ========================================================= */
 
 
-/* ==================================================
-   1. VARIABLES DE DISEÑO
-   ================================================== */
+/* =========================================================
+   1. VARIABLES
+   ========================================================= */
 
 :root {
-    --background: #07111F;
-    --background-light: #0A1628;
+    --bg: #050b14;
+    --bg-secondary: #081525;
 
-    --surface: #0D1B2A;
-    --surface-light: #13263D;
+    --surface: rgba(13, 30, 50, 0.65);
+    --surface-solid: #0d1e32;
 
-    --blue: #2563EB;
-    --blue-light: #38BDF8;
-    --blue-soft: rgba(56, 189, 248, 0.12);
+    --blue: #2563eb;
+    --blue-light: #38bdf8;
+    --blue-glow: rgba(56, 189, 248, 0.35);
 
-    --text: #F8FAFC;
-    --text-secondary: #94A3B8;
+    --white: #f8fafc;
+    --text: #cbd5e1;
+    --muted: #8291a5;
 
-    --border: rgba(148, 163, 184, 0.15);
+    --border: rgba(148, 163, 184, 0.14);
 
-    --radius: 18px;
+    --radius: 22px;
 
-    --transition: 0.3s ease;
+    --transition: 0.35s ease;
 }
 
 
-/* ==================================================
-   2. CONFIGURACIÓN GENERAL
-   ================================================== */
+/* =========================================================
+   2. RESET
+   ========================================================= */
 
 * {
     margin: 0;
@@ -46,28 +48,30 @@ html {
 
 body {
     font-family: Arial, sans-serif;
+
+    color: var(--white);
+
     background:
         radial-gradient(
-            circle at 80% 10%,
-            rgba(37, 99, 235, 0.14),
+            circle at 80% 5%,
+            rgba(37, 99, 235, 0.18),
             transparent 30%
         ),
         radial-gradient(
-            circle at 10% 80%,
+            circle at 10% 40%,
             rgba(56, 189, 248, 0.08),
             transparent 25%
         ),
-        var(--background);
+        var(--bg);
 
-    color: var(--text);
     line-height: 1.6;
 
     overflow-x: hidden;
 }
 
 a {
-    color: inherit;
     text-decoration: none;
+    color: inherit;
 }
 
 ul {
@@ -75,12 +79,13 @@ ul {
 }
 
 
-/* ==================================================
-   3. HEADER / NAVBAR
-   ================================================== */
+/* =========================================================
+   3. HEADER
+   ========================================================= */
 
 header {
     position: fixed;
+
     top: 0;
     left: 0;
 
@@ -88,40 +93,47 @@ header {
 
     z-index: 1000;
 
-    background: rgba(7, 17, 31, 0.75);
+    background: rgba(5, 11, 20, 0.72);
 
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
 
     border-bottom: 1px solid var(--border);
 }
 
 nav {
-    max-width: 1150px;
+    width: min(1150px, 92%);
 
     margin: auto;
 
-    padding: 20px;
+    height: 75px;
 
     display: flex;
 
     justify-content: space-between;
+
     align-items: center;
 }
 
 .logo {
     font-size: 23px;
+
     font-weight: 700;
 
-    letter-spacing: -0.5px;
+    letter-spacing: -1px;
 }
 
 .logo span {
     color: var(--blue-light);
+
+    text-shadow:
+        0 0 18px var(--blue-glow);
 }
 
 .menu {
     display: flex;
+
+    align-items: center;
 
     gap: 30px;
 }
@@ -129,7 +141,7 @@ nav {
 .menu a {
     position: relative;
 
-    color: var(--text-secondary);
+    color: var(--muted);
 
     font-size: 14px;
 
@@ -137,11 +149,8 @@ nav {
 }
 
 .menu a:hover {
-    color: var(--text);
+    color: var(--white);
 }
-
-
-/* Línea animada debajo del menú */
 
 .menu a::after {
     content: "";
@@ -149,12 +158,19 @@ nav {
     position: absolute;
 
     left: 0;
-    bottom: -7px;
+
+    bottom: -8px;
 
     width: 0;
+
     height: 2px;
 
-    background: var(--blue-light);
+    background:
+        linear-gradient(
+            90deg,
+            var(--blue),
+            var(--blue-light)
+        );
 
     transition: width var(--transition);
 }
@@ -164,80 +180,124 @@ nav {
 }
 
 
-/* ==================================================
+/* =========================================================
    4. HERO
-   ================================================== */
+   ========================================================= */
 
 .hero {
+    position: relative;
+
     min-height: 100vh;
 
-    max-width: 1150px;
+    width: min(1150px, 92%);
 
     margin: auto;
 
-    padding: 170px 20px 100px;
+    padding: 150px 0 100px;
 
-    display: flex;
+    display: grid;
 
-    flex-direction: column;
+    grid-template-columns: 1.15fr 0.85fr;
 
-    justify-content: center;
+    align-items: center;
 
-    position: relative;
+    gap: 60px;
 }
 
 
-/* Pequeño texto superior */
+/* luz decorativa */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    right: -180px;
+    top: 100px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(37, 99, 235, 0.16),
+            transparent 65%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
+}
+
+
+/* texto superior */
 
 .hero small {
+    display: inline-block;
+
+    margin-bottom: 22px;
+
     color: var(--blue-light);
 
-    font-size: 14px;
+    font-size: 13px;
 
-    font-weight: 600;
+    font-weight: 700;
 
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
 
-    margin-bottom: 18px;
-
-    animation: fadeUp 0.8s ease forwards;
+    animation: fadeUp 0.7s ease forwards;
 }
 
 
-/* Título principal */
+/* nombre */
 
 .hero h1 {
-    font-size: clamp(55px, 9vw, 105px);
+    font-size: clamp(58px, 8vw, 105px);
 
-    line-height: 0.95;
+    line-height: 0.9;
 
-    letter-spacing: -4px;
+    letter-spacing: -5px;
 
     margin-bottom: 30px;
 
-    max-width: 900px;
-
-    animation: fadeUp 0.9s ease forwards;
+    animation: fadeUp 0.85s ease forwards;
 }
 
 .hero h1 span {
-    color: var(--blue-light);
+    display: block;
 
-    text-shadow:
-        0 0 30px rgba(56, 189, 248, 0.25);
+    color: transparent;
+
+    background:
+        linear-gradient(
+            100deg,
+            var(--blue-light),
+            #60a5fa,
+            var(--blue)
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    filter:
+        drop-shadow(
+            0 0 25px
+            rgba(56, 189, 248, 0.18)
+        );
 }
 
 
-/* Descripción */
+/* descripción */
 
 .hero p {
     max-width: 650px;
 
-    color: var(--text-secondary);
+    color: var(--text);
 
-    font-size: 19px;
+    font-size: 18px;
 
-    line-height: 1.8;
+    line-height: 1.85;
 
     margin-bottom: 35px;
 
@@ -245,18 +305,18 @@ nav {
 }
 
 
-/* ==================================================
+/* =========================================================
    5. BOTONES
-   ================================================== */
+   ========================================================= */
 
 .buttons {
     display: flex;
 
-    gap: 15px;
-
     flex-wrap: wrap;
 
-    animation: fadeUp 1.1s ease forwards;
+    gap: 15px;
+
+    animation: fadeUp 1.15s ease forwards;
 }
 
 .btn {
@@ -265,15 +325,17 @@ nav {
     align-items: center;
     justify-content: center;
 
-    padding: 13px 25px;
+    min-height: 48px;
+
+    padding: 0 25px;
 
     border-radius: 50px;
 
-    border: 1px solid var(--blue);
-
     font-size: 14px;
 
-    font-weight: 600;
+    font-weight: 700;
+
+    border: 1px solid var(--blue);
 
     transition:
         transform var(--transition),
@@ -282,54 +344,190 @@ nav {
 }
 
 .btn-primary {
-    background: var(--blue);
-
     color: white;
 
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            #1d4ed8
+        );
+
     box-shadow:
-        0 0 25px rgba(37, 99, 235, 0.25);
+        0 10px 35px
+        rgba(37, 99, 235, 0.22);
 }
 
 .btn-primary:hover {
     transform: translateY(-4px);
 
-    background: #3474ed;
-
     box-shadow:
-        0 10px 30px rgba(37, 99, 235, 0.35);
+        0 15px 40px
+        rgba(37, 99, 235, 0.4);
 }
 
 .btn:not(.btn-primary) {
     color: var(--blue-light);
 
-    background: transparent;
+    background:
+        rgba(56, 189, 248, 0.04);
 }
 
 .btn:not(.btn-primary):hover {
     transform: translateY(-4px);
 
-    background: var(--blue-soft);
+    background:
+        rgba(56, 189, 248, 0.1);
 }
 
 
-/* ==================================================
-   6. SECCIONES
-   ================================================== */
+/* =========================================================
+   6. HERO VISUAL
+   ========================================================= */
+
+.hero-visual {
+    position: relative;
+
+    min-height: 430px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* círculo principal */
+
+.visual-circle {
+    position: relative;
+
+    width: 330px;
+    height: 330px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            rgba(56, 189, 248, 0.28),
+            rgba(37, 99, 235, 0.08) 45%,
+            transparent 70%
+        );
+
+    border:
+        1px solid
+        rgba(56, 189, 248, 0.25);
+
+    box-shadow:
+        0 0 80px
+        rgba(37, 99, 235, 0.16);
+
+    animation: float 5s ease-in-out infinite;
+}
+
+
+/* círculo interior */
+
+.visual-circle::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 35px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(56, 189, 248, 0.2);
+}
+
+
+/* núcleo */
+
+.visual-circle::after {
+    content: "";
+
+    position: absolute;
+
+    width: 90px;
+    height: 90px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue-light),
+            var(--blue)
+        );
+
+    box-shadow:
+        0 0 50px
+        rgba(56, 189, 248, 0.5);
+
+    animation: pulse 3s ease-in-out infinite;
+}
+
+
+/* pequeños elementos */
+
+.orbit {
+    position: absolute;
+
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    background: var(--blue-light);
+
+    box-shadow:
+        0 0 18px
+        rgba(56, 189, 248, 0.7);
+}
+
+.orbit-one {
+    top: 35px;
+    right: 65px;
+}
+
+.orbit-two {
+    bottom: 70px;
+    left: 35px;
+}
+
+.orbit-three {
+    top: 50%;
+    right: 5px;
+}
+
+
+/* =========================================================
+   7. SECCIONES
+   ========================================================= */
 
 section {
-    max-width: 1150px;
+    width: min(1150px, 92%);
 
     margin: auto;
 
-    padding: 110px 20px;
+    padding: 115px 0;
 }
 
 .section-title {
-    font-size: 45px;
+    font-size: clamp(36px, 5vw, 52px);
 
-    line-height: 1.1;
+    line-height: 1;
 
-    letter-spacing: -1.5px;
+    letter-spacing: -2px;
 
     margin-bottom: 45px;
 }
@@ -339,47 +537,83 @@ section {
 }
 
 
-/* ==================================================
-   7. SOBRE MÍ
-   ================================================== */
+/* =========================================================
+   8. SOBRE MÍ
+   ========================================================= */
+
+.about-container {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
 
 .about {
-    max-width: 800px;
-
-    color: var(--text-secondary);
+    color: var(--text);
 
     font-size: 18px;
 
     line-height: 1.9;
 }
 
+.about strong {
+    color: var(--blue-light);
+}
 
-/* ==================================================
-   8. HABILIDADES
-   ================================================== */
+
+/* tarjeta de perfil */
+
+.about-card {
+    padding: 35px;
+
+    border-radius: var(--radius);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(13, 30, 50, 0.8),
+            rgba(8, 21, 37, 0.55)
+        );
+
+    border: 1px solid var(--border);
+
+    box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.2);
+}
+
+
+/* =========================================================
+   9. HABILIDADES
+   ========================================================= */
 
 .skills {
     display: grid;
 
     grid-template-columns:
-        repeat(auto-fit, minmax(230px, 1fr));
+        repeat(4, 1fr);
 
-    gap: 20px;
+    gap: 18px;
 }
 
 .skill-card {
-    padding: 28px;
+    padding: 30px;
+
+    min-height: 190px;
+
+    border-radius: var(--radius);
 
     background:
         linear-gradient(
             145deg,
-            rgba(19, 38, 61, 0.8),
-            rgba(13, 27, 42, 0.8)
+            rgba(13, 30, 50, 0.8),
+            rgba(8, 21, 37, 0.6)
         );
 
     border: 1px solid var(--border);
-
-    border-radius: var(--radius);
 
     transition:
         transform var(--transition),
@@ -391,53 +625,101 @@ section {
     transform: translateY(-8px);
 
     border-color:
-        rgba(56, 189, 248, 0.45);
+        rgba(56, 189, 248, 0.35);
 
     box-shadow:
-        0 15px 40px rgba(0, 0, 0, 0.25);
+        0 20px 50px
+        rgba(0, 0, 0, 0.25);
 }
 
 .skill-card h3 {
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 
-    font-size: 20px;
+    font-size: 19px;
 }
 
 .skill-card p {
-    color: var(--text-secondary);
+    color: var(--muted);
 
-    font-size: 15px;
+    font-size: 14px;
 
-    line-height: 1.7;
+    line-height: 1.75;
 }
 
 
-/* ==================================================
-   9. PROYECTOS
-   ================================================== */
+/* =========================================================
+   10. METODOLOGÍAS
+   ========================================================= */
+
+.methodologies {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.methodology {
+    padding: 30px;
+
+    border-radius: var(--radius);
+
+    background:
+        rgba(13, 30, 50, 0.55);
+
+    border: 1px solid var(--border);
+
+    transition: var(--transition);
+}
+
+.methodology:hover {
+    transform: translateY(-6px);
+
+    border-color:
+        rgba(56, 189, 248, 0.35);
+
+    background:
+        rgba(13, 30, 50, 0.85);
+}
+
+.methodology h3 {
+    margin-bottom: 10px;
+
+    color: var(--blue-light);
+}
+
+.methodology p {
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   11. PROYECTOS
+   ========================================================= */
 
 .projects {
     display: grid;
 
     grid-template-columns:
-        repeat(auto-fit, minmax(280px, 1fr));
+        repeat(2, 1fr);
 
     gap: 25px;
 }
 
 .project {
-    position: relative;
+    overflow: hidden;
+
+    border-radius: var(--radius);
 
     background:
         linear-gradient(
             145deg,
-            rgba(19, 38, 61, 0.9),
-            rgba(13, 27, 42, 0.9)
+            rgba(13, 30, 50, 0.9),
+            rgba(8, 21, 37, 0.7)
         );
-
-    border-radius: var(--radius);
-
-    overflow: hidden;
 
     border: 1px solid var(--border);
 
@@ -454,48 +736,55 @@ section {
         rgba(56, 189, 248, 0.4);
 
     box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.3);
+        0 25px 60px
+        rgba(0, 0, 0, 0.3);
 }
 
-.project::before {
-    content: "";
+.project-image {
+    height: 220px;
 
-    display: block;
+    display: flex;
 
-    height: 4px;
+    align-items: center;
+
+    justify-content: center;
 
     background:
-        linear-gradient(
-            90deg,
-            var(--blue),
-            var(--blue-light)
+        radial-gradient(
+            circle,
+            rgba(37, 99, 235, 0.22),
+            transparent 60%
         );
+
+    color: var(--blue-light);
+
+    font-size: 45px;
 }
 
 .project-content {
-    padding: 28px;
+    padding: 30px;
 }
 
 .project h3 {
-    margin-bottom: 12px;
-
     font-size: 22px;
+
+    margin-bottom: 10px;
 }
 
 .project p {
-    color: var(--text-secondary);
+    color: var(--muted);
 
-    font-size: 15px;
+    font-size: 14px;
+
+    line-height: 1.7;
 
     margin-bottom: 15px;
 }
 
 .project-link {
-    display: inline-block;
-
     color: var(--blue-light);
 
-    font-weight: 600;
+    font-weight: 700;
 
     transition: var(--transition);
 }
@@ -505,22 +794,24 @@ section {
 }
 
 
-/* ==================================================
-   10. FORMACIÓN
-   ================================================== */
+/* =========================================================
+   12. FORMACIÓN
+   ========================================================= */
 
 .timeline {
     position: relative;
 
-    border-left: 2px solid var(--blue);
+    border-left:
+        2px solid
+        rgba(56, 189, 248, 0.35);
 
-    padding-left: 30px;
+    padding-left: 35px;
 }
 
 .timeline-item {
     position: relative;
 
-    margin-bottom: 40px;
+    margin-bottom: 45px;
 }
 
 .timeline-item::before {
@@ -528,36 +819,38 @@ section {
 
     position: absolute;
 
-    width: 12px;
-    height: 12px;
+    left: -42px;
+
+    top: 4px;
+
+    width: 13px;
+    height: 13px;
 
     border-radius: 50%;
 
     background: var(--blue-light);
 
-    left: -37px;
-    top: 5px;
-
     box-shadow:
-        0 0 15px rgba(56, 189, 248, 0.5);
+        0 0 20px
+        rgba(56, 189, 248, 0.5);
 }
 
 .timeline-item h3 {
-    margin-bottom: 8px;
+    margin-bottom: 7px;
 
     font-size: 20px;
 }
 
 .timeline-item p {
-    color: var(--text-secondary);
+    color: var(--muted);
 
-    margin-bottom: 3px;
+    font-size: 14px;
 }
 
 
-/* ==================================================
-   11. CONTACTO
-   ================================================== */
+/* =========================================================
+   13. CONTACTO
+   ========================================================= */
 
 .contact {
     text-align: center;
@@ -566,41 +859,37 @@ section {
     padding-bottom: 130px;
 }
 
-.contact .section-title {
-    margin-bottom: 20px;
-}
-
 .contact p {
     max-width: 600px;
 
     margin: 0 auto 30px;
 
-    color: var(--text-secondary);
+    color: var(--muted);
 
     font-size: 17px;
 }
 
 
-/* ==================================================
-   12. FOOTER
-   ================================================== */
+/* =========================================================
+   14. FOOTER
+   ========================================================= */
 
 footer {
+    padding: 35px 20px;
+
     text-align: center;
 
-    padding: 30px 20px;
+    color: var(--muted);
 
-    color: var(--text-secondary);
-
-    font-size: 14px;
+    font-size: 13px;
 
     border-top: 1px solid var(--border);
 }
 
 
-/* ==================================================
-   13. ANIMACIONES
-   ================================================== */
+/* =========================================================
+   15. ANIMACIONES
+   ========================================================= */
 
 @keyframes fadeUp {
 
@@ -615,53 +904,83 @@ footer {
 
         transform: translateY(0);
     }
-
 }
 
 
-/* ==================================================
-   14. EFECTO DE APARICIÓN
-   ================================================== */
+@keyframes float {
 
-.hero small,
-.hero h1,
-.hero p,
-.hero .buttons {
-    opacity: 0;
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
 }
 
 
-/* ==================================================
-   15. RESPONSIVE / TABLET
-   ================================================== */
+@keyframes pulse {
 
-@media (max-width: 800px) {
-
-    .menu {
-        gap: 15px;
+    0%,
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
     }
 
-    .hero h1 {
-        font-size: clamp(50px, 12vw, 80px);
-
-        letter-spacing: -3px;
+    50% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.08);
     }
-
-    section {
-        padding: 90px 20px;
-    }
-
 }
 
 
-/* ==================================================
-   16. RESPONSIVE / CELULAR
-   ================================================== */
+/* =========================================================
+   16. RESPONSIVE
+   ========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 950px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .hero-visual {
+        min-height: 350px;
+    }
+
+    .skills {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+
+    .methodologies {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 650px) {
 
     nav {
-        padding: 18px 20px;
+        height: 68px;
     }
 
     .menu {
@@ -669,41 +988,28 @@ footer {
     }
 
     .hero {
-        padding:
-            140px 20px
-            80px;
+        padding-top: 130px;
+
+        gap: 30px;
     }
 
     .hero h1 {
-        font-size: 55px;
+        font-size: 58px;
 
-        letter-spacing: -2.5px;
+        letter-spacing: -3px;
     }
 
     .hero p {
-        font-size: 17px;
-
-        line-height: 1.7;
-    }
-
-    .buttons {
-        flex-direction: column;
-
-        align-items: stretch;
-
-        max-width: 280px;
-    }
-
-    .btn {
-        width: 100%;
-    }
-
-    .section-title {
-        font-size: 36px;
-    }
-
-    .about {
         font-size: 16px;
+    }
+
+    .visual-circle {
+        width: 260px;
+        height: 260px;
+    }
+
+    section {
+        padding: 85px 0;
     }
 
     .skills {
@@ -714,5 +1020,21 @@ footer {
         grid-template-columns: 1fr;
     }
 
-}
+    .project-image {
+        height: 180px;
+    }
 
+    .buttons {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        max-width: 280px;
+
+        margin: auto;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
