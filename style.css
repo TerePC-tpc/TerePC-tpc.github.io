@@ -1,4 +1,14 @@
-      * {
+:root {
+    --background: #07111F;
+    --surface: #0D1B2A;
+    --blue: #2563EB;
+    --blue-light: #38BDF8;
+    --text: #F8FAFC;
+    --text-secondary: #94A3B8;
+}
+
+
+* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -8,12 +18,26 @@
             scroll-behavior: smooth;
         }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #0f0f14;
-            color: #ffffff;
-            line-height: 1.6;
-        }
+
+body {
+    background: var(--background);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+       body {
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(37, 99, 235, 0.12),
+            transparent 30%
+        ),
+        var(--background);
+
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
 
         a {
             color: inherit;
