@@ -47,7 +47,14 @@ html {
 }
 
 body {
-    font-family: Arial, sans-serif;
+ h1,
+h2,
+h3,
+.logo {
+    font-family: "Space Grotesk", sans-serif;
+}
+   
+   font-family: "Inter", sans-serif;
 
     color: var(--white);
 
@@ -257,7 +264,7 @@ nav {
 
     line-height: 0.9;
 
-    letter-spacing: -5px;
+    letter-spacing: -3px;
 
     margin-bottom: 30px;
 
