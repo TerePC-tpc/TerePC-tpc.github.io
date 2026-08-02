@@ -1,3 +1,6 @@
+/* =========================================================
+   VARIABLES
+   ========================================================= */
 
 :root {
     --bg: #050b14;
@@ -22,7 +25,9 @@
 }
 
 
-*/
+/* =========================================================
+   RESET GENERAL
+   ========================================================= */
 
 * {
     margin: 0;
@@ -35,14 +40,7 @@ html {
 }
 
 body {
- h1,
-h2,
-h3,
-.logo {
-    font-family: "Space Grotesk", sans-serif;
-}
-   
-   font-family: "Inter", sans-serif;
+    font-family: "Inter", sans-serif;
 
     color: var(--white);
 
@@ -64,6 +62,17 @@ h3,
     overflow-x: hidden;
 }
 
+
+/* Tipografía de títulos */
+
+h1,
+h2,
+h3,
+.logo {
+    font-family: "Space Grotesk", sans-serif;
+}
+
+
 a {
     text-decoration: none;
     color: inherit;
@@ -74,6 +83,9 @@ ul {
 }
 
 
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 header {
     position: fixed;
@@ -107,6 +119,9 @@ nav {
     align-items: center;
 }
 
+
+/* Logo */
+
 .logo {
     font-size: 23px;
 
@@ -121,6 +136,9 @@ nav {
     text-shadow:
         0 0 18px var(--blue-glow);
 }
+
+
+/* Menú */
 
 .menu {
     display: flex;
@@ -150,11 +168,9 @@ nav {
     position: absolute;
 
     left: 0;
-
     bottom: -8px;
 
     width: 0;
-
     height: 2px;
 
     background:
@@ -172,6 +188,9 @@ nav {
 }
 
 
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .hero {
     position: relative;
@@ -194,7 +213,7 @@ nav {
 }
 
 
-/* luz decorativa */
+/* Luz decorativa */
 
 .hero::before {
     content: "";
@@ -220,7 +239,7 @@ nav {
 }
 
 
-/* texto superior */
+/* Texto superior */
 
 .hero small {
     display: inline-block;
@@ -235,11 +254,12 @@ nav {
 
     letter-spacing: 2.5px;
 
-    animation: fadeUp 0.7s ease forwards;
+    animation:
+        fadeUp 0.7s ease forwards;
 }
 
 
-/* nombre */
+/* Nombre */
 
 .hero h1 {
     font-size: clamp(58px, 8vw, 105px);
@@ -250,7 +270,8 @@ nav {
 
     margin-bottom: 30px;
 
-    animation: fadeUp 0.85s ease forwards;
+    animation:
+        fadeUp 0.85s ease forwards;
 }
 
 .hero h1 span {
@@ -277,7 +298,7 @@ nav {
 }
 
 
-/* descripción */
+/* Descripción */
 
 .hero p {
     max-width: 650px;
@@ -290,10 +311,14 @@ nav {
 
     margin-bottom: 35px;
 
-    animation: fadeUp 1s ease forwards;
+    animation:
+        fadeUp 1s ease forwards;
 }
 
 
+/* =========================================================
+   BOTONES
+   ========================================================= */
 
 .buttons {
     display: flex;
@@ -302,7 +327,8 @@ nav {
 
     gap: 15px;
 
-    animation: fadeUp 1.15s ease forwards;
+    animation:
+        fadeUp 1.15s ease forwards;
 }
 
 .btn {
@@ -367,6 +393,9 @@ nav {
 }
 
 
+/* =========================================================
+   ELEMENTO VISUAL DEL HERO
+   ========================================================= */
 
 .hero-visual {
     position: relative;
@@ -381,7 +410,7 @@ nav {
 }
 
 
-/* círculo principal */
+/* Círculo principal */
 
 .visual-circle {
     position: relative;
@@ -407,11 +436,12 @@ nav {
         0 0 80px
         rgba(37, 99, 235, 0.16);
 
-    animation: float 5s ease-in-out infinite;
+    animation:
+        float 5s ease-in-out infinite;
 }
 
 
-/* círculo interior */
+/* Círculo interior */
 
 .visual-circle::before {
     content: "";
@@ -428,7 +458,7 @@ nav {
 }
 
 
-/* núcleo */
+/* Núcleo */
 
 .visual-circle::after {
     content: "";
@@ -441,7 +471,8 @@ nav {
     left: 50%;
     top: 50%;
 
-    transform: translate(-50%, -50%);
+    transform:
+        translate(-50%, -50%);
 
     border-radius: 50%;
 
@@ -456,11 +487,12 @@ nav {
         0 0 50px
         rgba(56, 189, 248, 0.5);
 
-    animation: pulse 3s ease-in-out infinite;
+    animation:
+        pulse 3s ease-in-out infinite;
 }
 
 
-/* pequeños elementos */
+/* Órbitas */
 
 .orbit {
     position: absolute;
@@ -493,23 +525,124 @@ nav {
 }
 
 
+/* Texto UI / UX */
+
+.visual-text {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 42px;
+
+    font-weight: 700;
+
+    letter-spacing: -2px;
+
+    color: var(--white);
+
+    z-index: 2;
+}
+
+.visual-text span {
+    color: var(--blue-light);
+
+    margin: 0 4px;
+}
+
+
+/* =========================================================
+   TARJETAS FLOTANTES
+   ========================================================= */
+
+.floating-card {
+    position: absolute;
+
+    padding: 13px 18px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(13, 30, 50, 0.75);
+
+    border:
+        1px solid
+        rgba(56, 189, 248, 0.2);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    color: var(--text);
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 14px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0, 0, 0, 0.25);
+
+    z-index: 5;
+}
+
+.floating-card span {
+    color: var(--blue-light);
+
+    font-size: 11px;
+
+    margin-right: 7px;
+}
+
+.card-one {
+    top: 55px;
+    right: 5px;
+
+    animation:
+        floatCard 4s ease-in-out infinite;
+}
+
+.card-two {
+    bottom: 55px;
+    left: 5px;
+
+    animation:
+        floatCard 4s ease-in-out infinite 1s;
+}
+
+
+/* =========================================================
+   SECCIONES GENERALES
+   ========================================================= */
 
 section {
     width: min(1150px, 92%);
 
-    margin: auto;
+    margin: 0 auto;
 
     padding: 115px 0;
 }
 
+
+/* Títulos */
+
 .section-title {
-    font-size: clamp(36px, 5vw, 52px);
+    font-size:
+        clamp(36px, 5vw, 52px);
 
     line-height: 1;
 
     letter-spacing: -2px;
 
-    margin-bottom: 45px;
+    margin-bottom: 50px;
 }
 
 .section-title span {
@@ -517,10 +650,15 @@ section {
 }
 
 
+/* =========================================================
+   SOBRE MÍ
+   ========================================================= */
+
 .about-container {
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+        1fr 1fr;
 
     gap: 70px;
 
@@ -538,9 +676,6 @@ section {
 .about strong {
     color: var(--blue-light);
 }
-
-
-/* tarjeta de perfil */
 
 .about-card {
     padding: 35px;
@@ -562,6 +697,9 @@ section {
 }
 
 
+/* =========================================================
+   HABILIDADES
+   ========================================================= */
 
 .skills {
     display: grid;
@@ -620,7 +758,18 @@ section {
 }
 
 
+/* =========================================================
+   METODOLOGÍAS
+   ========================================================= */
 
+#metodologias {
+    position: relative;
+
+    padding-bottom: 130px;
+}
+
+
+/* Contenedor de metodologías */
 
 .methodologies {
     display: grid;
@@ -629,9 +778,16 @@ section {
         repeat(3, 1fr);
 
     gap: 20px;
+
+    width: 100%;
 }
 
+
+/* Tarjetas */
+
 .methodology {
+    min-height: 200px;
+
     padding: 30px;
 
     border-radius: var(--radius);
@@ -641,7 +797,10 @@ section {
 
     border: 1px solid var(--border);
 
-    transition: var(--transition);
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        background var(--transition);
 }
 
 .methodology:hover {
@@ -655,27 +814,48 @@ section {
 }
 
 .methodology h3 {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 
     color: var(--blue-light);
+
+    font-size: 20px;
 }
 
 .methodology p {
     color: var(--muted);
 
     font-size: 14px;
+
+    line-height: 1.75;
 }
 
 
+/* =========================================================
+   PROYECTOS
+   ========================================================= */
+
+#proyectos {
+    position: relative;
+
+    padding-top: 130px;
+}
+
+
+/* Contenedor */
 
 .projects {
     display: grid;
 
     grid-template-columns:
-        repeat(2, 1fr);
+        repeat(2, minmax(0, 1fr));
 
     gap: 25px;
+
+    width: 100%;
 }
+
+
+/* Tarjeta */
 
 .project {
     overflow: hidden;
@@ -708,13 +888,15 @@ section {
         rgba(0, 0, 0, 0.3);
 }
 
+
+/* Imagen */
+
 .project-image {
     height: 220px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     background:
@@ -728,6 +910,9 @@ section {
 
     font-size: 45px;
 }
+
+
+/* Contenido */
 
 .project-content {
     padding: 30px;
@@ -750,11 +935,15 @@ section {
 }
 
 .project-link {
+    display: inline-block;
+
     color: var(--blue-light);
 
     font-weight: 700;
 
-    transition: var(--transition);
+    transition:
+        transform var(--transition),
+        color var(--transition);
 }
 
 .project-link:hover {
@@ -762,7 +951,9 @@ section {
 }
 
 
-
+/* =========================================================
+   FORMACIÓN Y EXPERIENCIA
+   ========================================================= */
 
 .timeline {
     position: relative;
@@ -814,6 +1005,10 @@ section {
 }
 
 
+/* =========================================================
+   CONTACTO
+   ========================================================= */
+
 .contact {
     text-align: center;
 
@@ -824,7 +1019,8 @@ section {
 .contact p {
     max-width: 600px;
 
-    margin: 0 auto 30px;
+    margin:
+        0 auto 30px;
 
     color: var(--muted);
 
@@ -832,6 +1028,9 @@ section {
 }
 
 
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
 footer {
     padding: 35px 20px;
@@ -846,20 +1045,24 @@ footer {
 }
 
 
-
+/* =========================================================
+   ANIMACIONES
+   ========================================================= */
 
 @keyframes fadeUp {
 
     from {
         opacity: 0;
 
-        transform: translateY(25px);
+        transform:
+            translateY(25px);
     }
 
     to {
         opacity: 1;
 
-        transform: translateY(0);
+        transform:
+            translateY(0);
     }
 }
 
@@ -868,11 +1071,13 @@ footer {
 
     0%,
     100% {
-        transform: translateY(0);
+        transform:
+            translateY(0);
     }
 
     50% {
-        transform: translateY(-15px);
+        transform:
+            translateY(-15px);
     }
 }
 
@@ -894,14 +1099,35 @@ footer {
 }
 
 
+@keyframes floatCard {
 
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-10px);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
 
 @media (max-width: 950px) {
+
+    /* Hero */
 
     .hero {
         grid-template-columns: 1fr;
 
         text-align: center;
+
+        gap: 40px;
     }
 
     .hero p {
@@ -913,124 +1139,48 @@ footer {
         justify-content: center;
     }
 
-    .hero-visual {
-        min-height: 350px;
+
+    /* Sobre mí */
+
+    .about-container {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
     }
+
+
+    /* Habilidades */
 
     .skills {
         grid-template-columns:
             repeat(2, 1fr);
     }
 
-    .about-container {
-        grid-template-columns: 1fr;
-    }
+
+    /* Metodologías */
 
     .methodologies {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    /* Proyectos */
+
+    .projects {
+        grid-template-columns:
+            1fr;
     }
 }
 
 
-
-
-.visual-text {
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-
-    font-family: "Space Grotesk", sans-serif;
-
-    font-size: 42px;
-
-    font-weight: 700;
-
-    letter-spacing: -2px;
-
-    color: var(--white);
-
-    z-index: 2;
-}
-
-.visual-text span {
-    color: var(--blue-light);
-
-    margin: 0 4px;
-}
-
-
-.floating-card {
-    position: absolute;
-
-    padding: 13px 18px;
-
-    border-radius: 14px;
-
-    background:
-        rgba(13, 30, 50, 0.75);
-
-    border:
-        1px solid
-        rgba(56, 189, 248, 0.2);
-
-    backdrop-filter: blur(12px);
-
-    -webkit-backdrop-filter: blur(12px);
-
-    color: var(--text);
-
-    font-family: "Space Grotesk", sans-serif;
-
-    font-size: 14px;
-
-    box-shadow:
-        0 15px 40px
-        rgba(0, 0, 0, 0.25);
-
-    z-index: 5;
-}
-
-.floating-card span {
-    color: var(--blue-light);
-
-    font-size: 11px;
-
-    margin-right: 7px;
-}
-
-.card-one {
-    top: 55px;
-    right: 5px;
-
-    animation:
-        floatCard 4s ease-in-out infinite;
-}
-
-.card-two {
-    bottom: 55px;
-    left: 5px;
-
-    animation:
-        floatCard 4s ease-in-out infinite 1s;
-}
-
-
-@keyframes floatCard {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-}
+/* =========================================================
+   MÓVIL
+   ========================================================= */
 
 @media (max-width: 650px) {
+
+    /* Navegación */
 
     nav {
         height: 68px;
@@ -1039,6 +1189,9 @@ footer {
     .menu {
         display: none;
     }
+
+
+    /* Hero */
 
     .hero {
         padding-top: 130px;
@@ -1056,26 +1209,81 @@ footer {
         font-size: 16px;
     }
 
+
+    /* Visual */
+
+    .hero-visual {
+        min-height: 330px;
+    }
+
     .visual-circle {
         width: 260px;
         height: 260px;
     }
 
+    .visual-text {
+        font-size: 32px;
+    }
+
+    .floating-card {
+        font-size: 12px;
+
+        padding: 10px 13px;
+    }
+
+    .card-one {
+        right: -5px;
+    }
+
+    .card-two {
+        left: -5px;
+    }
+
+
+    /* Secciones */
+
     section {
         padding: 85px 0;
     }
 
+
+    /* Habilidades */
+
     .skills {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
+    }
+
+
+    /* Metodologías */
+
+    #metodologias {
+        padding-bottom: 90px;
+    }
+
+    .methodologies {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    /* Proyectos */
+
+    #proyectos {
+        padding-top: 90px;
     }
 
     .projects {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
     }
 
     .project-image {
         height: 180px;
     }
+
+
+    /* Botones */
 
     .buttons {
         flex-direction: column;
