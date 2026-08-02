@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Teresita Pineda | UI/UX & Software Developer</title>
+
+    <meta name="description" content="Portafolio profesional de Teresita de Jesus Pineda Cruz, Ingeniera en Desarrollo y Gestión de Software especializada en UI/UX y desarrollo web.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f0f14;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* NAVBAR */
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(15, 15, 20, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #a78bfa;
+        }
+
+        .menu {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .menu a {
+            color: #cccccc;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: #a78bfa;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            max-width: 1100px;
+            margin: auto;
+            padding: 150px 20px 80px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero small {
+            color: #a78bfa;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 90px);
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #a78bfa;
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: #bdbdbd;
+            font-size: 20px;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 25px;
+            border-radius: 30px;
+            border: 1px solid #a78bfa;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #a78bfa;
+            color: #111;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* SECTIONS */
+
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 100px 20px;
+        }
+
+        .section-title {
+            font-size: 40px;
+            margin-bottom: 45px;
+        }
+
+        .section-title span {
+            color: #a78bfa;
+        }
+
+        .about {
+            max-width: 800px;
+            color: #bdbdbd;
+            font-size: 18px;
+        }
+
+        /* SKILLS */
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            padding: 25px;
+            background: #17171f;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: #a78bfa;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .skill-card p {
+            color: #aaa;
+        }
+
+        /* PROJECTS */
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .project {
+            background: #17171f;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-7px);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project h3 {
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+
+        .project-link {
+            color: #a78bfa;
+        }
+
+        /* EDUCATION */
+
+        .timeline {
+            border-left: 2px solid #a78bfa;
+            padding-left: 25px;
+        }
+
+        .timeline-item {
+            margin-bottom: 35px;
+        }
+
+        .timeline-item h3 {
+            margin-bottom: 5px;
+        }
+
+        .timeline-item p {
+            color: #aaa;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            color: #aaa;
+            margin-bottom: 25px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            .menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            section {
+                padding: 70px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <nav>
+
+        <div class="logo">
+            Tere<span>.</span>
+        </div>
+
+        <ul class="menu">
+            <li><a href="#sobre-mi">Sobre mí</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#formacion">Formación</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<main>
+
+<section class="hero">
+
+    <small>INGENIERA EN DESARROLLO Y GESTIÓN DE SOFTWARE</small>
+
+    <h1>
+        Hola, soy<br>
+        <span>Teresita.</span>
+    </h1>
+
+    <p>
+        Diseño interfaces y desarrollo soluciones digitales
+        combinando creatividad, tecnología y funcionalidad.
+    </p>
+
+    <div class="buttons">
+
+        <a href="#proyectos" class="btn btn-primary">
+            Ver proyectos
+        </a>
+
+        <a href="#sobre-mi" class="btn">
+            Conóceme
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- SOBRE MI -->
+
+<section id="sobre-mi">
+
+    <h2 class="section-title">
+        Sobre <span>mí</span>
+    </h2>
+
+    <p class="about">
+
+        Soy Ingeniera en Desarrollo y Gestión de Software con interés
+        en el diseño de interfaces y la experiencia de usuario (UI/UX).
+
+        Me gusta crear soluciones digitales que no solo funcionen,
+        sino que también sean claras, intuitivas y visualmente atractivas.
+
+        Cuento con conocimientos en desarrollo web, bases de datos,
+        prototipado de interfaces y herramientas de diseño.
+
+    </p>
+
+</section>
+
+
+<!-- HABILIDADES -->
+
+<section id="habilidades">
+
+    <h2 class="section-title">
+        Mis <span>habilidades</span>
+    </h2>
+
+    <div class="skills">
+
+        <div class="skill-card">
+            <h3>🎨 UI / UX</h3>
+            <p>
+                Figma, Adobe XD, wireframes,
+                prototipos y diseño de interfaces.
+            </p>
+        </div>
+
+        <div class="skill-card">
+            <h3>💻 Desarrollo Web</h3>
+            <p>
+                HTML5, CSS3, Bootstrap y PHP.
+            </p>
+        </div>
+
+        <div class="skill-card">
+            <h3>🗄️ Bases de datos</h3>
+            <p>
+                MySQL, consultas SQL, modelado
+                y administración básica.
+            </p>
+        </div>
+
+        <div class="skill-card">
+            <h3>🛠️ Herramientas</h3>
+            <p>
+                Visual Studio Code, GitHub,
+                XAMPP y phpMyAdmin.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROYECTOS -->
+
+<section id="proyectos">
+
+    <h2 class="section-title">
+        Proyectos <span>destacados</span>
+    </h2>
+
+    <div class="projects">
+
+        <article class="project">
+
+            <div class="project-content">
+
+                <h3>Cross Army Fitness</h3>
+
+                <p>
+                    Sistema web para la administración
+                    de atletas, membresías, pagos,
+                    productos y clases.
+                </p>
+
+                <p>
+                    PHP · MySQL · HTML · CSS · Bootstrap
+                </p>
+
+                <a href="#" class="project-link">
+                    Ver proyecto →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article class="project">
+
+            <div class="project-content">
+
+                <h3>Industria Forestal Pineda</h3>
+
+                <p>
+                    Diseño de una propuesta de sistema
+                    web para apoyar la organización
+                    y gestión de la empresa.
+                </p>
+
+                <p>
+                    UI/UX · Diseño web · Prototipado
+                </p>
+
+                <a href="#" class="project-link">
+                    Ver proyecto →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article class="project">
+
+            <div class="project-content">
+
+                <h3>Proyecto IoT</h3>
+
+                <p>
+                    Proyecto utilizando NodeMCU,
+                    sensores, servomotor y sistema
+                    de control automatizado.
+                </p>
+
+                <p>
+                    IoT · Arduino · NodeMCU
+                </p>
+
+                <a href="#" class="project-link">
+                    Ver proyecto →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article class="project">
+
+            <div class="project-content">
+
+                <h3>Galería Web</h3>
+
+                <p>
+                    Proyecto web enfocado en la
+                    presentación visual y organización
+                    de contenido multimedia.
+                </p>
+
+                <p>
+                    HTML · CSS · Diseño web
+                </p>
+
+                <a href="https://github.com/TerePC-tpc/TdJPC"
+                   class="project-link">
+                    Ver en GitHub →
+                </a>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- FORMACION -->
+
+<section id="formacion">
+
+    <h2 class="section-title">
+        Mi <span>formación</span>
+    </h2>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+
+            <h3>
+                Ingeniería en Desarrollo y Gestión de Software
+            </h3>
+
+            <p>
+                Universidad Tecnológica de la Costa Grande de Guerrero
+            </p>
+
+            <p>
+                2022 – 2026 · Titulación en trámite
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <h3>
+                TSU en Tecnologías de la Información
+            </h3>
+
+            <p>
+                Área: Desarrollo de Software Multiplataforma
+            </p>
+
+            <p>
+                Universidad Tecnológica de la Costa Grande de Guerrero
+            </p>
+
+            <p>
+                2020 – 2022
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACTO -->
+
+<section id="contacto" class="contact">
+
+    <h2 class="section-title">
+        ¿Trabajamos <span>juntos?</span>
+    </h2>
+
+    <p>
+        Estoy interesada en seguir desarrollándome en
+        UI/UX y desarrollo de software.
+    </p>
+
+    <a
+        href="mailto:teresita152004@gmail.com"
+        class="btn btn-primary">
+
+        Contáctame
+
+    </a>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    © 2026 Teresita Pineda · UI/UX & Software Developer
+
+</footer>
+
+
+</body>
+</html>
