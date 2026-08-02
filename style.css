@@ -984,6 +984,107 @@ footer {
 }
 
 
+
+/* =========================================================
+   HERO - ELEMENTOS FLOTANTES
+   ========================================================= */
+
+.visual-text {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 42px;
+
+    font-weight: 700;
+
+    letter-spacing: -2px;
+
+    color: var(--white);
+
+    z-index: 2;
+}
+
+.visual-text span {
+    color: var(--blue-light);
+
+    margin: 0 4px;
+}
+
+
+.floating-card {
+    position: absolute;
+
+    padding: 13px 18px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(13, 30, 50, 0.75);
+
+    border:
+        1px solid
+        rgba(56, 189, 248, 0.2);
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    color: var(--text);
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 14px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0, 0, 0, 0.25);
+
+    z-index: 5;
+}
+
+.floating-card span {
+    color: var(--blue-light);
+
+    font-size: 11px;
+
+    margin-right: 7px;
+}
+
+.card-one {
+    top: 55px;
+    right: 5px;
+
+    animation:
+        floatCard 4s ease-in-out infinite;
+}
+
+.card-two {
+    bottom: 55px;
+    left: 5px;
+
+    animation:
+        floatCard 4s ease-in-out infinite 1s;
+}
+
+
+@keyframes floatCard {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
 @media (max-width: 650px) {
 
     nav {
