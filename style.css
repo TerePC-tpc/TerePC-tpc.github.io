@@ -151,11 +151,22 @@ nav {
 .menu a {
     position: relative;
 
+    display: inline-flex;
+
+    align-items: center;
+
     color: var(--muted);
 
     font-size: 14px;
 
     transition: var(--transition);
+}
+
+/* Iconos del menú */
+.menu a i {
+    margin-right: 6px;
+
+    font-size: 13px;
 }
 
 .menu a:hover {
@@ -353,6 +364,13 @@ nav {
         transform var(--transition),
         box-shadow var(--transition),
         background var(--transition);
+}
+
+/* Iconos dentro de los botones */
+.btn i {
+    margin-right: 8px;
+
+    font-size: 14px;
 }
 
 .btn-primary {
@@ -602,6 +620,15 @@ nav {
     margin-right: 7px;
 }
 
+/* Iconos dentro de las tarjetas flotantes */
+.floating-card i {
+    margin-right: 6px;
+
+    color: var(--blue-light);
+
+    font-size: 13px;
+}
+
 .card-one {
     top: 55px;
     right: 5px;
@@ -629,6 +656,9 @@ section {
     margin: 0 auto;
 
     padding: 115px 0;
+
+    /* Evita que el header fijo tape las secciones al navegar */
+    scroll-margin-top: 90px;
 }
 
 
@@ -696,6 +726,13 @@ section {
         rgba(0, 0, 0, 0.2);
 }
 
+/* Icono del título del about-card */
+.about-card h3 i {
+    margin-right: 8px;
+
+    color: var(--blue-light);
+}
+
 
 /* =========================================================
    HABILIDADES
@@ -755,6 +792,48 @@ section {
     font-size: 14px;
 
     line-height: 1.75;
+}
+
+/* Icono de las habilidades */
+.skill-icon {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(37, 99, 235, 0.12);
+
+    border:
+        1px solid
+        rgba(56, 189, 248, 0.2);
+
+    color: var(--blue-light);
+
+    font-size: 22px;
+
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        box-shadow var(--transition);
+}
+
+.skill-card:hover .skill-icon {
+    transform: translateY(-3px);
+
+    background:
+        rgba(37, 99, 235, 0.2);
+
+    box-shadow:
+        0 0 25px
+        rgba(56, 189, 248, 0.18);
 }
 
 
@@ -829,6 +908,48 @@ section {
     line-height: 1.75;
 }
 
+/* Icono de las metodologías */
+.methodology-icon {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(37, 99, 235, 0.12);
+
+    border:
+        1px solid
+        rgba(56, 189, 248, 0.2);
+
+    color: var(--blue-light);
+
+    font-size: 22px;
+
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        box-shadow var(--transition);
+}
+
+.methodology:hover .methodology-icon {
+    transform: translateY(-3px);
+
+    background:
+        rgba(37, 99, 235, 0.2);
+
+    box-shadow:
+        0 0 25px
+        rgba(56, 189, 248, 0.18);
+}
+
 
 /* =========================================================
    OTROS CONOCIMIENTOS
@@ -836,13 +957,13 @@ section {
 
 #otros-conocimientos {
     position: relative;
+
     padding-top: 80px;
     padding-bottom: 110px;
 }
 
 
-/* Contenedor */
-
+/* Contenedor — 4 columnas en escritorio */
 .knowledge-grid {
     display: grid;
 
@@ -965,12 +1086,7 @@ section {
     line-height: 1.75;
 }
 
-/* Otros conocimientos */
 
-.knowledge-grid {
-    grid-template-columns:
-        repeat(2, 1fr);
-}
 /* =========================================================
    PROYECTOS
    ========================================================= */
@@ -1049,7 +1165,21 @@ section {
 
     color: var(--blue-light);
 
-    font-size: 45px;
+    font-size: 55px;
+
+    transition:
+        transform var(--transition),
+        color var(--transition);
+}
+
+.project:hover .project-image i {
+    transform: scale(1.12);
+
+    color: #60a5fa;
+}
+
+.project-image i {
+    transition: transform var(--transition);
 }
 
 
@@ -1076,7 +1206,9 @@ section {
 }
 
 .project-link {
-    display: inline-block;
+    display: inline-flex;
+
+    align-items: center;
 
     color: var(--blue-light);
 
@@ -1087,8 +1219,18 @@ section {
         color var(--transition);
 }
 
+.project-link i {
+    margin-left: 6px;
+
+    transition: transform var(--transition);
+}
+
 .project-link:hover {
     transform: translateX(5px);
+}
+
+.project-link:hover i {
+    transform: translateX(4px);
 }
 
 
@@ -1112,25 +1254,39 @@ section {
     margin-bottom: 45px;
 }
 
-.timeline-item::before {
-    content: "";
 
+/* Marcador del timeline (ahora sin ::before, usamos .timeline-icon) */
+.timeline-icon {
     position: absolute;
 
-    left: -42px;
+    left: -52px;
 
-    top: 4px;
+    top: 0;
 
-    width: 13px;
-    height: 13px;
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
 
     border-radius: 50%;
 
-    background: var(--blue-light);
+    background:
+        rgba(37, 99, 235, 0.2);
+
+    border:
+        1px solid
+        rgba(56, 189, 248, 0.4);
+
+    color: var(--blue-light);
+
+    font-size: 14px;
 
     box-shadow:
         0 0 20px
-        rgba(56, 189, 248, 0.5);
+        rgba(56, 189, 248, 0.25);
 }
 
 .timeline-item h3 {
@@ -1143,6 +1299,47 @@ section {
     color: var(--muted);
 
     font-size: 14px;
+
+    margin-bottom: 6px;
+}
+
+/* Lista dentro del timeline */
+.timeline-list {
+    margin: 8px 0 12px;
+
+    padding-left: 0;
+}
+
+.timeline-list li {
+    position: relative;
+
+    padding-left: 20px;
+
+    margin-bottom: 5px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+.timeline-list li::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 9px;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: var(--blue-light);
+
+    box-shadow:
+        0 0 10px
+        rgba(56, 189, 248, 0.5);
 }
 
 
@@ -1166,6 +1363,25 @@ section {
     color: var(--muted);
 
     font-size: 17px;
+}
+
+/* Teléfono en contacto */
+.contact-phone {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 25px;
+
+    color: var(--text);
+
+    font-size: 15px;
+}
+
+.contact-phone i {
+    color: var(--blue-light);
 }
 
 
@@ -1306,6 +1522,14 @@ footer {
     }
 
 
+    /* Otros conocimientos — 2 columnas en tablet */
+
+    .knowledge-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
     /* Proyectos */
 
     .projects {
@@ -1406,12 +1630,15 @@ footer {
         grid-template-columns:
             1fr;
     }
-/* Otros conocimientos */
 
-.knowledge-grid {
-    grid-template-columns:
-        1fr;
-}
+
+    /* Otros conocimientos */
+
+    .knowledge-grid {
+        grid-template-columns:
+            1fr;
+    }
+
 
     /* Proyectos */
 
@@ -1426,6 +1653,20 @@ footer {
 
     .project-image {
         height: 180px;
+
+        font-size: 45px;
+    }
+
+
+    /* Timeline en móvil */
+
+    .timeline-icon {
+        left: -46px;
+
+        width: 30px;
+        height: 30px;
+
+        font-size: 12px;
     }
 
 
